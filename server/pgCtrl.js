@@ -9,6 +9,10 @@ module.exports = {
         res.sendFile(path.join(__dirname, "../public/login.html"))
     },
 
+    register: (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/register.html"))
+    },
+
     //assets
 
     style: (req, res) => {
@@ -21,6 +25,10 @@ module.exports = {
 
     loginJs: (req, res) => {
         res.sendFile(path.join(__dirname, "../public/login.js"))
+    },
+
+    registerJs: (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/register.js"))
     },
 
     logoLarge: (req, res) => {

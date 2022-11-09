@@ -10,13 +10,15 @@ app.use(express.json())
 app.use(cors())
 
 
-const { home, login, style, indexJs, loginJs, logoLarge } = require("./pgCtrl")
+const { home, login, style, indexJs, loginJs, logoLarge, register, registerJs} = require("./pgCtrl")
 
 //page navigation:
 
 app.get("/", home)
 
 app.get("/login", login)
+
+app.get("/register", register)
 
 //assets
 
@@ -25,6 +27,9 @@ app.get("/style", style)
 app.get("/indexjs", indexJs)
 
 app.get("/loginjs", loginJs)
+
+app.get("/registerjs", registerJs)
+
 
 //logo
 
