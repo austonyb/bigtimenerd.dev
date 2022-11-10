@@ -47,32 +47,44 @@
               </div>
               <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <div class="card-body">
+                    <div class="form-control">
+                        <label class="label">
+                          <span class="label-text">First Name</span>
+                        </label>
+                        <input id="first-name" type="text" placeholder="first name" class="input input-bordered" />
+                      </div>
+                      <div class="form-control">
+                        <label class="label">
+                          <span class="label-text">Last Name</span>
+                        </label>
+                        <input id="last-name" type="text" placeholder="Last Name" class="input input-bordered" />
+                      </div>
                   <div class="form-control">
                     <label class="label">
                       <span class="label-text">Email</span>
                     </label>
-                    <input type="text" placeholder="email" class="input input-bordered" />
+                    <input id="email" type="text" placeholder="email" class="input input-bordered" />
                   </div>
                   <div class="form-control">
                     <label class="label">
                       <span class="label-text">Password</span>
                     </label>
-                    <input type="text" placeholder="password" class="input input-bordered" />
+                    <input id="password-1" type="text" placeholder="password" class="input input-bordered" />
                     <label class="label">
-                      <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-                    </label>
+                        <a id="password-length" href="#" class="label-text-alt link link-hover"></a>
+                      </label>
                   </div>
                   <div class="form-control">
                     <label class="label">
-                      <span class="label-text">Password</span>
+                      <span class="label-text">Confirm Password</span>
                     </label>
-                    <input type="text" placeholder="password" class="input input-bordered" />
+                    <input id="password-2" type="text" placeholder="password" class="input input-bordered" />
                     <label class="label">
-                      <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+                      <a id="password-status" href="#" class="label-text-alt link link-hover"></a>
                     </label>
                   </div>
                   <div class="form-control mt-6">
-                    <button class="btn btn-primary">Login</button>
+                    <button id="register-btn" class="btn btn-primary">Register</button>
                   </div>
                 </div>
               </div>

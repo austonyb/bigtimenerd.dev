@@ -9,8 +9,15 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+const { loginFunc, registerFunc } = require("./controllers/auth.js")
 
-const { home, login, style, indexJs, loginJs, logoLarge, register, registerJs} = require("./pgCtrl")
+const { home, login, style, indexJs, loginJs, logoLarge, register, registerJs} = require("./controllers/pgCtrl")
+
+//user management / Login and Register API
+
+app.post(`/user/login`, loginFunc)
+
+app.post(`/user/register`, registerFunc)
 
 //page navigation:
 
@@ -36,3 +43,5 @@ app.get("/registerjs", registerJs)
 app.get("/large-logo", logoLarge)
 
 app.listen(PORT, () => console.log(`server listening on port ${PORT}`))
+
+
