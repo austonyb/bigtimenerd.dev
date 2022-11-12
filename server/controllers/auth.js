@@ -14,7 +14,48 @@ const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
 
 module.exports = {
     loginFunc: (req, res) => {
-        
+      console.log('Logging In User')
+      console.log(req.body)
+      const {email, password} = req.body
+      
+      sequelize.query(`
+        SELECT * FROM users
+        WHERE users.email = '${email}';
+      `)
+      .then((dbRes) => {
+        console.log(dbRes)
+
+        const userData = dbRes
+        let {first_name, last_name, email, account_open_date} = userData[0][0]
+        // console.log('----------------------')
+        // console.log(userData[0][0].password)
+        // console.log('----------------------')
+
+        if (userData === undefined) {
+          res.status(200).send({success: false, message: 'bad email or password'})
+        } else {
+          bcrypt.compare(password, userData[0][0].password, (error, success) => {
+            if (!error) {
+              if (success) {
+                res.status(200).send({
+                  success: true,
+                  message: "success",
+                  firstName: first_name,
+                  lastName: last_name,
+                  emailAddress: email,
+                  accountCreatedAt: account_open_date
+                })
+              } else {
+                res.status(200).send({success: false, message: 'bad password'})
+              }
+            } else {
+              console.log('bcrypt had an error comparing passwords: ')
+              console.log(error)
+              res.status(500).send({success: false, message: "backend error"})
+            }
+          })
+         }
+        })
       },
   
   
@@ -32,7 +73,9 @@ module.exports = {
           VALUES ('${firstName}', '${lastName}', '${email}', '${hashPass}', current_timestamp);
           `)
           .then(dbRes => {
-            res.status(200).send(dbRes[0])
+            res.status(200).send({
+              success: true
+            })
             
         })
         .catch(err => console.log(err))
