@@ -15,9 +15,18 @@ const { home, login, style, indexJs, loginJs, logoLarge, register, registerJs} =
 
 //user management / Login and Register API
 
-app.post(`/user/login`, loginFunc)
+try {
+    app.post(`/user/login`, loginFunc)
+} catch {
+    console.log('login function crashed.')
+}
 
-app.post(`/user/register`, registerFunc)
+try {
+    app.post(`/user/register`, registerFunc)
+} catch {
+    console.log('register function crashed.')
+}
+
 
 //page navigation:
 
