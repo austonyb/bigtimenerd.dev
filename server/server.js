@@ -11,7 +11,9 @@ app.use(cors())
 
 const { loginFunc, registerFunc } = require("./controllers/auth.js")
 
-const { home, login, style, indexJs, loginJs, logoLarge, register, registerJs} = require("./controllers/pgCtrl")
+const { home, login, style, indexJs, loginJs, logoLarge, register, registerJs, admin, adminJs, articles, articlesJs} = require("./controllers/pgCtrl")
+
+const { articleLoader, addComment, deleteComment, articleSubmit } = require("./controllers/contentApi.js")
 
 //user management / Login and Register API
 
@@ -36,6 +38,10 @@ app.get("/login", login)
 
 app.get("/register", register)
 
+app.get("/admin", admin)
+
+app.get("/articles", articles)
+
 //assets
 
 app.get("/style", style)
@@ -45,6 +51,10 @@ app.get("/indexjs", indexJs)
 app.get("/loginjs", loginJs)
 
 app.get("/registerjs", registerJs)
+
+app.get("/adminjs", adminJs)
+
+app.get("/articlesjs", articlesJs)
 
 
 //logo

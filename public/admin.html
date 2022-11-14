@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Admin Portal</title>
     <link rel="stylesheet" href="/style">
 </head>
 <body>
+    
     <nav class="navbar bg-base-100">
         <div class="navbar-start">
           <div class="dropdown">
@@ -37,59 +38,9 @@
           </button>
         </div>
     </nav>
-    
+
     <main>
-        <div class="hero min-h-screen bg-base-200">
-            <div class="hero-content flex-col lg:flex-row-reverse">
-              <div class="text-center lg:text-left">
-                <h1 class="text-5xl font-bold">Register now!</h1>
-                <p class="py-6">Register now for all of the benefits of being a part of bigTimeNerd.dev!</p>
-              </div>
-              <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <div class="card-body">
-                    <div class="form-control">
-                        <label class="label">
-                          <span class="label-text">First Name</span>
-                        </label>
-                        <input id="first-name" type="text" placeholder="first name" class="input input-bordered" />
-                      </div>
-                      <div class="form-control">
-                        <label class="label">
-                          <span class="label-text">Last Name</span>
-                        </label>
-                        <input id="last-name" type="text" placeholder="Last Name" class="input input-bordered" />
-                      </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Email</span>
-                    </label>
-                    <input id="email" type="text" placeholder="email" class="input input-bordered" />
-                  </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Password</span>
-                    </label>
-                    <input id="password-1" type="password" placeholder="password" class="input input-bordered" />
-                    <label class="label">
-                        <a id="password-length" href="#" class="label-text-alt link link-hover"></a>
-                      </label>
-                  </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Confirm Password</span>
-                    </label>
-                    <input id="password-2" type="password" placeholder="password" class="input input-bordered" />
-                    <label class="label">
-                      <a id="password-status" href="#" class="label-text-alt link link-hover"></a>
-                    </label>
-                  </div>
-                  <div class="form-control mt-6">
-                    <button id="register-btn" class="btn btn-primary">Register</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        
     </main>
 
     <footer class="footer p-10 bg-base-200 text-base-content">
@@ -123,7 +74,7 @@
           </div>
         </div>
       </footer>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/registerjs"></script>
+
+<script src="/adminjs"></script>
 </body>
 </html>

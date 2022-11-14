@@ -13,6 +13,14 @@ module.exports = {
         res.sendFile(path.join(__dirname, "../../public/register.html"))
     },
 
+    admin: (req, res) => {
+        res.sendFile(path.join(__dirname, "../../public/admin.html"))
+    },
+
+    articles: (req, res) => {
+        res.sendFile(path.join(__dirname, "../../public/articles.html"))
+    },
+
     //assets
 
     style: (req, res) => {
@@ -29,6 +37,14 @@ module.exports = {
 
     registerJs: (req, res) => {
         res.sendFile(path.join(__dirname, "../../public/register.js"))
+    },
+
+    adminJs: (req, res) => {
+        res.sendFile(path.join(__dirname, "../../public/admin.js"))
+    },
+
+    articlesJs: (req, res) => {
+        res.sendFile(path.join(__dirname, "../../public/articles.js"))
     },
 
     logoLarge: (req, res) => {
