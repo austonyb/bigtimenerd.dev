@@ -9,8 +9,9 @@ const sendLogin = body => {
     .then((res) => {
       const { firstName, lastName, emailAddress, accountCreatedAt } = res.data
       if (res.data.success) {
-        document.cookie = `name=user; first_name=${firstName};`
+        document.cookie = `name=${firstName}; path=/; max-age=${60 * 60};`
         alert('login successful')
+        window.location.href = '/'
       } else {
         console.log('no axios error, but login not successful: bad username or password')
         alert('bad username or password')

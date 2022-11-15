@@ -37,7 +37,25 @@ module.exports = {
 
     authorName: (req, res) => {
         res.status(200).send(authors)
-    }
+    },
 
+    addComment: (req, res) => {
+        sequelize.query(`
+        
+        `)
+        
+        res.status(200).send()
+    },
+
+    commentLoader: (req, res) => {
+        sequelize.query(`
+        SELECT * FROM chat
+        `)
+        .then((dbRes) => {
+            messages = dbRes[0]
+            console.log(messages)
+            res.status(200).send(messages)
+        })
+    }
 
 }

@@ -27,7 +27,9 @@
       <a href="/" class="btn btn-ghost normal-case text-xl">bigTimeNerd</a>
     </div>
 </nav>
-
+<header>
+  <div id="name-spot" class="flex flex-row"></div>
+</header>
     <main>
       <div id="hero"class="hero min-h-screen bg-base-200">
         <div class="hero-content flex-col lg:flex-row-reverse">
@@ -40,8 +42,17 @@
         </div>
       </div>
     </main>
+
     <section>
-      
+      <div class="mockup-window border bg-base-300">
+        <div class="flex justify-start px-4 py-16 bg-base-200" id="chat-anchor">
+          <h2>Welcome to the Chat!</h2>
+        </div>
+        <div>
+          <input id="chat-message" type="text" placeholder="Type Message here" class="input input-bordered input-secondary w-full max-w-xs" />
+          <button id="chat-sbm" class="btn btn-secondary">submit</button>
+        </div>
+      </div>
     </section>
     
     <footer class="footer p-10 bg-base-200 text-base-content">
@@ -58,6 +69,7 @@
         </div> 
       </footer>
 
-      <script src="/indexjs"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/indexjs"></script>
 </body>
 </html>

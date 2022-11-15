@@ -11,7 +11,8 @@ const sendRegistration = body => {
     axios.post(registerURL, body)
     .then((res) => {
         if (res.data.success) {
-        alert('login successful')
+        alert('registration successful')
+        window.location.href = '/login'
       } else {
         console.log('no axios error, but registration not successful: bad username or password')
         alert('bad username or password')
