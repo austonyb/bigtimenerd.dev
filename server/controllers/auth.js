@@ -27,9 +27,7 @@ module.exports = {
 
         const userData = dbRes
         let {first_name, last_name, email, account_open_date} = userData[0][0]
-        // console.log('----------------------')
-        // console.log(userData[0][0].password)
-        // console.log('----------------------')
+      
 
         if (userData === undefined) {
           res.status(200).send({success: false, message: 'bad email or password'})

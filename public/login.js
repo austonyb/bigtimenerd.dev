@@ -7,8 +7,10 @@ const loginURL = '/user/login'
 const sendLogin = body => {
     axios.post(loginURL, body)
     .then((res) => {
+      const { firstName, lastName, emailAddress, accountCreatedAt } = res.data
       if (res.data.success) {
-        console.log('login successful')
+        document.cookie = `name=user; first_name=${firstName};`
+        alert('login successful')
       } else {
         console.log('no axios error, but login not successful: bad username or password')
         alert('bad username or password')
@@ -35,11 +37,3 @@ const sendLogin = body => {
   }
 
 submitBtn.addEventListener('click', submitHandler)
-
-// function displayDestinyUponLogin(data) {
-//     const messageCenterElement = document.createElement('div')
-
-//     messageCenterElement.innerHTML = `<p class="destiny-intro">${data.intro}</p><p class="destiny">${data.destiny}</p>`
-
-//     messageDiv.appendChild(messageCenterElement)
-// }

@@ -3155,6 +3155,10 @@ html {
   height: 5rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -3189,6 +3193,10 @@ html {
 
 .w-11\/12 {
   width: 91.666667%;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .max-w-sm {
@@ -3233,6 +3241,10 @@ html {
 
 .justify-center {
   justify-content: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .rounded-lg {
@@ -3286,6 +3298,14 @@ html {
 
 .p-10 {
   padding: 2.5rem;
+}
+
+.p-20 {
+  padding: 5rem;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .py-6 {
