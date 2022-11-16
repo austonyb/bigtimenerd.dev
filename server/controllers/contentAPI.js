@@ -116,6 +116,16 @@ module.exports = {
         .catch(err => console.log(err + ' there was an error when a user submitted an article.'))
     },
 
-    
+    deleteArticle: (req, res) => {
+        const { id } = req.body
+        
+        sequelize.query(`
+        DELETE FROM articles
+        WHERE id = '${i}'
+        `)
+        .then((dbRes) => {
+            res.status(200).send({})
+        })
+    }
 
 }

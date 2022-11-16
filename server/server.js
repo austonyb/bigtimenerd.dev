@@ -75,6 +75,12 @@ try {
     console.log("There was an error running the article submit function.")
 }
 
+try {
+    app.delete("/content", deleteArticle)
+} catch {
+    console.log("There was an error with the delete article function.")
+}
+
 app.get("/content", articleLoader)
 
 app.get("/content/author", authorName)

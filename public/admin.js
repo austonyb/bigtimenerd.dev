@@ -5,9 +5,9 @@ let titleInput
 let imageInput
 let publishDateInput
 let content
-let publishBtn
+const publishBtn = document.getElementById('publish-btn')
 let articleID
-let deleteArticleBtn
+const deleteArticleBtn = document.getElementById('delete-article-btn')
 
 
 Window.onload = loader()
@@ -75,15 +75,12 @@ function loadAdminTools() {
             <textarea id="content" class="textarea textarea-bordered" placeholder="Article Content"></textarea>
         </div>
         <br>
-        <button id="publish-btn" class="btn btn-secondary">Publish</button>
-        <br>
         <br>
         <div>
         <h1>Delete an Article</h1>
         <h2>Note, this is non-reversible!</h2>
         <span>Enter Article Number or ID:</span>
             <input id="article-id" type="text" placeholder="ID"></input>
-            <button id="delete-article-btn" class="btn btn-secondary">Delete Article</button>
         </div>
     </div>`
 
@@ -94,9 +91,7 @@ function loadAdminTools() {
     imageInput = document.getElementById('image-link')
     publishDateInput = document.getElementById('publish-date')
     content = document.getElementById('content')
-    publishBtn = document.getElementById('publish-btn')
     articleID = document.getElementById('article-id')
-    deleteArticleBtn = document.getElementById('delete-article-btn')
 }
 
 function cookieParser (cookie) {
@@ -104,3 +99,31 @@ function cookieParser (cookie) {
     console.log(nameValue[1] + ' is the name of the person logged in.')
     return nameValue[1]
 }
+
+const submitArticle = (body) => {
+    axios.post('/content', body)
+    .then((res) => {
+        if (res.data.success === true){
+            alert('Article successfully added')
+        } else {
+            alert('something went wrong.')
+        }
+    })
+}
+
+function submitHandler(evt){
+    evt.preventDefault()
+
+    let body = {
+        authorID: authorInput.value,
+        content: content.value,
+        publishDate: publishDateInput.value,
+        imageURL: imageInput.value,
+        title: titleInput.value
+    }
+
+    submitArticle(body)
+}
+
+publishBtn.addEventListener('click', submitHandler)
+// deleteArticleBtn.addEventListener('click', )
