@@ -6,6 +6,12 @@ const chatAnchor = document.getElementById('chat-anchor')
 let logoutBtn
 let user
 
+//stat checker consts
+
+const commentCountElement = document.getElementById('comment-count')
+const userCountElement = document.getElementById('user-count')
+const articleCountElement = document.getElementById('article-count')
+
 // Window.onload = cookieChecker()
 
 Window.onload = loader()
@@ -13,6 +19,7 @@ Window.onload = loader()
 function loader () {
     cookieChecker()
     chatLoader()
+    statLoader()
 }
 
 function navigateToArticles() {
@@ -124,6 +131,20 @@ function cookieParser (cookie) {
     console.log(nameValue[1])
     return nameValue[1]
 }
+
+
+//stat loader at the bottom of the page.
+
+function statLoader() {
+    axios.get('/content/count')
+    .then((res) => {
+      console.log(res.data.articleCount)
+      const { messageCount, userCount, articleCount } = res.data
+      commentCountElement.textContent = messageCount
+      userCountElement.textContent = userCount
+      articleCountElement.textContent = articleCount
+    })
+  }
 
 chatSubmitBtn.addEventListener('click', submitChat)
 logoutBtn.addEventListener('click', logout)

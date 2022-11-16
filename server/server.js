@@ -13,7 +13,7 @@ const { loginFunc, registerFunc, isAdmin } = require("./controllers/auth.js")
 
 const { home, login, style, indexJs, loginJs, logoLarge, register, registerJs, admin, adminJs, articles, articlesJs} = require("./controllers/pgCtrl")
 
-const { articleLoader, authorName, addComment, commentLoader, articleSubmit, commentCounter } = require("./controllers/contentApi.js")
+const { articleLoader, authorName, addComment, commentLoader, articleSubmit, statsCounter } = require("./controllers/contentApi.js")
 
 //user management / Login and Register API
 
@@ -77,7 +77,7 @@ app.get('/content/chat', commentLoader)
 
 app.post('/content/chat', addComment)
 
-app.get('/content/chat/count', commentCounter)
+app.get('/content/count', statsCounter)
 
 app.listen(PORT, () => console.log(`server listening on port ${PORT}`))
 

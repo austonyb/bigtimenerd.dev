@@ -63,16 +63,40 @@ module.exports = {
         })
     },
 
-    commentCounter: (req, res) => {
+    statsCounter: (req, res) => {
+        let messageCount = 0
+        let userCount = 0
+        let articleCount = 0
+
         sequelize.query(`
         SELECT COUNT(chat_id)
         FROM chat
         `)
         .then((dbRes) => {
-           const{ count } = dbRes[0][0]
-            res.status(200).send({
-                messageCount: count
+           messageCount = dbRes[0][0].count
+           console.log(messageCount)
+
+           sequelize.query(`
+           SELECT COUNT(id)
+           FROM articles;
+           `)
+           .then((dbRes) => {
+                articleCount = dbRes[0][0].count
+
+                sequelize.query(`
+                SELECT COUNT(id)
+                FROM users;
+                `)
+                .then((dbRes) => {
+                    userCount = dbRes[0][0].count
+
+                    res.status(200).send({
+                        messageCount: messageCount,
+                        userCount: userCount,
+                        articleCount: articleCount
+                    })
             })
+           })
         })
     }
 
