@@ -11,7 +11,7 @@ const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
     }
 })
 
-const adminList = ['Auston', 'Janalie']
+const adminList = ['Auston', 'Janalie', 'Cameron']
 
 
 module.exports = {
