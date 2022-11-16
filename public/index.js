@@ -53,7 +53,12 @@ function chatLoader() {
             messageBlock.classList.add('p-10')
 
             messageBlock.innerHTML =`
-            <h1 class="flex justify-start">From: ${poster} at ${time}</h1>
+            <div class="avatar">
+                <div class="w-12">
+                    <img class="rounded-full" src="https://placeimg.com/192/192/people" />
+                </div>
+            </div>
+            <h1>From: ${poster} at ${time}</h1>
             <p>${message}</p>
             `
 
@@ -63,9 +68,50 @@ function chatLoader() {
     })
 }
 
-// function submitChat() {
-//     axios.push()
-// }
+function loadLatestChat () {
+    axios.get('/content/chat')
+    .then((res) => {
+        const comments = res.data
+        
+        const { poster, message, time } = comments[comments.length - 1]
+
+            const messageBlock = document.createElement('div')
+            messageBlock.classList.add('p-10')
+
+            messageBlock.innerHTML =`
+            <div class="avatar">
+                <div class="w-12">
+                    <img class="rounded-full" src="https://placeimg.com/192/192/people" />
+                </div>
+            </div>
+            <h1>From: ${poster} at ${time}</h1>
+            <p>${message}</p>
+            `
+
+            chatAnchor.appendChild(messageBlock)
+        
+
+    })
+}
+
+function submitChat() {
+    if (user !== undefined){
+        let body = {
+            poster: user,
+            message: chatInput.value
+        }
+
+        axios.post('content/chat', body)
+        .then((res) => {
+            if (res.data.success === true){
+                loadLatestChat()
+            }
+        })
+    } else {
+        alert('Log-in to chat.')
+        window.location.href = '/login'
+    }
+}
 
 function logout (evt) {
     // Delete the cookie
@@ -79,6 +125,6 @@ function cookieParser (cookie) {
     return nameValue[1]
 }
 
-
+chatSubmitBtn.addEventListener('click', submitChat)
 logoutBtn.addEventListener('click', logout)
 readNowBtn.addEventListener('click', navigateToArticles)

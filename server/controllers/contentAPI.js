@@ -40,11 +40,16 @@ module.exports = {
     },
 
     addComment: (req, res) => {
+        const { poster, message } = req.body
+
         sequelize.query(`
-        
+        INSERT INTO chat (poster, message, time)
+        VALUES ('${poster}', '${message}', current_timestamp);
         `)
         
-        res.status(200).send()
+        res.status(200).send({
+            success:true
+        })
     },
 
     commentLoader: (req, res) => {
@@ -55,6 +60,19 @@ module.exports = {
             messages = dbRes[0]
             console.log(messages)
             res.status(200).send(messages)
+        })
+    },
+
+    commentCounter: (req, res) => {
+        sequelize.query(`
+        SELECT COUNT(chat_id)
+        FROM chat
+        `)
+        .then((dbRes) => {
+           const{ count } = dbRes[0][0]
+            res.status(200).send({
+                messageCount: count
+            })
         })
     }
 

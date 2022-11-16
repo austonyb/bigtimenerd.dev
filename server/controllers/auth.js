@@ -11,6 +11,8 @@ const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
     }
 })
 
+const adminList = ['Auston', 'Janalie']
+
 
 module.exports = {
     loginFunc: (req, res) => {
@@ -81,5 +83,15 @@ module.exports = {
             
             
       },
+
+      isAdmin: (req, res) => {
+        let { name } = req.body
+        console.log(name)
+        if (name === 'Janalie' || 'Auston'){
+          res.status(200).send({
+            success: true
+          })
+        }
+      }
 
     }
