@@ -57,7 +57,8 @@ function chatLoader() {
             let { poster, message, time } = comments[i]
             
             timeConverted = new Date(time).valueOf()
-            time = timeConverted - (1000 * 60 * 60 * 7)
+            // time = timeConverted - (1000 * 60 * 60 * 7)
+            time = timeConverted
             time = new Date(time).toLocaleString()
 
             const messageBlock = document.createElement('div')
