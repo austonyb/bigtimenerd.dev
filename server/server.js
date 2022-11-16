@@ -13,7 +13,7 @@ const { loginFunc, registerFunc, isAdmin } = require("./controllers/auth.js")
 
 const { home, login, style, indexJs, loginJs, logoLarge, register, registerJs, admin, adminJs, articles, articlesJs} = require("./controllers/pgCtrl")
 
-const { articleLoader, authorName, addComment, commentLoader, articleSubmit, statsCounter } = require("./controllers/contentApi.js")
+const { articleLoader, authorName, addComment, commentLoader, articleSubmit, deleteArticle, statsCounter } = require("./controllers/contentApi.js")
 
 //user management / Login and Register API
 
@@ -68,6 +68,12 @@ app.get("/articlesjs", articlesJs)
 app.get("/large-logo", logoLarge)
 
 //content API
+
+try {
+    app.post("/content", articleSubmit)
+} catch {
+    console.log("There was an error running the article submit function.")
+}
 
 app.get("/content", articleLoader)
 

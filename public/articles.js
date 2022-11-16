@@ -23,11 +23,9 @@ function loadArticles () {
             <h1>${title}</h1>
             <h2>Published on ${publish_date}</h2>
             <h2">Article #${id}</h2>
-            <img src="${image}" class="max-w-sm rounded-lg shadow-2xl"></img>
+            <img src="${image}" class="max-w-xs rounded-lg shadow-2xl"></img>
             <br>
             <p class="text-sm">${content}</p>
-
-
             `
             articleAnchor.appendChild(post)
         }

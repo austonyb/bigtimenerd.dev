@@ -16,7 +16,8 @@ module.exports = {
     articleLoader: (req, res) => {
         
         sequelize.query(`
-        SELECT id, first_name as first, last_name as last FROM users;
+        SELECT id, first_name as first, last_name as last FROM users
+        ORDER BY id ASC;
         `)
         .then((dbRes) => {
             authors = dbRes[0]
@@ -98,6 +99,23 @@ module.exports = {
             })
            })
         })
-    }
+    },
+
+    articleSubmit: (req, res) => {
+        const { authorID, content, publishDate, imageURL, title } = req.body
+
+        sequelize.query(`
+        INSERT INTO articles (author_id, content, publish_date, image, title)
+        VALUES (${authorID}, '${content}', '${publishDate}', '${imageURL}', '${title}');
+        `)
+        .then((dbRes) => {
+            res.status(200).send({
+                success: true
+            })
+        })
+        .catch(err => console.log(err + ' there was an error when a user submitted an article.'))
+    },
+
+    
 
 }
