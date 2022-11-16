@@ -9,11 +9,11 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-const { loginFunc, registerFunc, isAdmin } = require("./controllers/auth.js")
+const { loginFunc, registerFunc, isAdmin } = require("./controllers/auth")
 
 const { home, login, style, indexJs, loginJs, logoLarge, register, registerJs, admin, adminJs, articles, articlesJs} = require("./controllers/pgCtrl")
 
-const { articleLoader, authorName, addComment, commentLoader, articleSubmit, deleteArticle, statsCounter } = require("./controllers/contentApi.js")
+const { articleLoader, authorName, addComment, commentLoader, articleSubmit, deleteArticle, statsCounter } = require("./controllers/contentAPI")
 
 //user management / Login and Register API
 
