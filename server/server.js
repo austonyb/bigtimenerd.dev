@@ -76,7 +76,7 @@ try {
 }
 
 try {
-    app.delete("/content", deleteArticle)
+    app.post("/content/delete", deleteArticle)
 } catch {
     console.log("There was an error with the delete article function.")
 }

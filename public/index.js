@@ -54,7 +54,11 @@ function chatLoader() {
         const comments = res.data
 
         for (let i = 0; i < comments.length; i++){
-            const { poster, message, time } = comments[i]
+            let { poster, message, time } = comments[i]
+            
+            timeConverted = new Date(time).valueOf()
+            time = timeConverted - (1000 * 60 * 60 * 7)
+            time = new Date(time).toLocaleString()
 
             const messageBlock = document.createElement('div')
             messageBlock.classList.add('p-10')

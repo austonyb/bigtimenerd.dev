@@ -125,5 +125,21 @@ function submitHandler(evt){
     submitArticle(body)
 }
 
+
+function deleteArticle(){
+    let body = {
+        id: articleID.value
+    }
+
+    axios.post('/content/delete', body)
+    .then((res) => {
+        if (res.data.success === true){
+            alert(`Article with id ${articleID.value} has been deleted.`)
+        } else {
+            console.log("something went wrong with the deleteArticle function.")
+        }
+    })
+}
+
 publishBtn.addEventListener('click', submitHandler)
-// deleteArticleBtn.addEventListener('click', )
+deleteArticleBtn.addEventListener('click', deleteArticle)

@@ -117,14 +117,17 @@ module.exports = {
     },
 
     deleteArticle: (req, res) => {
+        console.log(req.body.id)
         const { id } = req.body
         
         sequelize.query(`
         DELETE FROM articles
-        WHERE id = '${i}'
+        WHERE id = '${id}'
         `)
         .then((dbRes) => {
-            res.status(200).send({})
+            res.status(200).send({
+                success: true
+            })
         })
     }
 
