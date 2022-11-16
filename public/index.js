@@ -72,7 +72,6 @@ function chatLoader() {
             <h1>From: ${poster} at ${time}</h1>
             <p>${message}</p>
             `
-
             chatAnchor.appendChild(messageBlock)
         }
 
